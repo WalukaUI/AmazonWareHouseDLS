@@ -1,27 +1,33 @@
-let aa = document.getElementsByClassName("s-widget-spacing-small");
-let parent = document.getElementsByClassName("s-search-results");
-let yy = document.getElementsByClassName("sg-col-inner");
-let searchBar = document.getElementsByClassName(
-  "a-section a-spacing-none s-result-item s-flex-full-width s-widget s-widget-spacing-large"
-);
+window.addEventListener("DOMContentLoaded", () => {
+  let deals = document.getElementsByClassName("s-widget-spacing-small");
+  let parent = document.getElementsByClassName("s-search-results");
+  let parentDiv = document.getElementsByClassName("sg-col-inner");
+  let searchBar = document.getElementsByClassName(
+    "a-section a-spacing-none s-result-item s-flex-full-width s-widget s-widget-spacing-large"
+  );
 
-let newA = [];
-let srch = [];
+  let newArray = [];
+  let newSearchBar = [];
 
-srch.push(searchBar[3]);
-
-for (let i = 0; i < aa.length; i++) {
-  if (aa[i].textContent.includes("More Buying Choices") === true) {
-    newA.push(aa[i]);
+  for (let i = 0; i < searchBar.length; i++) {
+    if (searchBar[i].textContent.includes("Next") === true) {
+      newSearchBar.push(searchBar[i]);
+    }
   }
-}
 
-while (yy[2].firstChild) {
-  yy[2].removeChild(yy[2].firstChild);
-}
+  for (let i = 0; i < deals.length; i++) {
+    if (deals[i].textContent.includes("More Buying Choices") === true) {
+      newArray.push(deals[i]);
+    }
+  }
 
-for (let x of newA) {
-  yy[2].appendChild(x);
-}
+  while (parentDiv[2].firstChild) {
+    parentDiv[2].removeChild(parentDiv[2].firstChild);
+  }
 
-yy[2].appendChild(srch[0]);
+  for (let x of newArray) {
+    parentDiv[2].appendChild(x);
+  }
+
+  parentDiv[2].appendChild(newSearchBar[0]);
+});
