@@ -1,4 +1,4 @@
-You will be able to filter out all Amazon Other Buying Options using this extension.
+You will be able to filter out all Amazon Other Buying Options using this extension.<br />
 Shop Amazon Other Buying Options without ads and other deals.
 
 ![](https://github.com/WalukaUI/AmazonWareHouseDLS/blob/main/filter.gif)
@@ -12,7 +12,7 @@ Or follow these steps
 1 Download Tampermonkey extention https://www.tampermonkey.net/
 select the browser you are using and download and install stable version.
 
-2 click create new scripts.
-3 copy and past code in index.js
-4 click file => save
+2 click create new scripts.<br />
+3 copy and past code in index.js<br />
+4 click file => save<br />
 5 Shop with ease :)
