@@ -39,6 +39,7 @@
 
     //Create a new div to save searchBar
     let newDiv = document.createElement("div");
+    newDiv.style.backgroundColor = "#FFE6E6";
     newDiv.className = "srhBar";
 
     //Remove all products on the window
