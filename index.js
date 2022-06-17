@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Amazon Other Buying Options Filter!!
+// @name         Amazon "More Buying Options" Filter!!
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  Shop Amazon Other Buying Options without ads and other deals.
+// @description  Shop Amazon "More Buying Options" without ads and other products.
 // @author       LukaUI
 // @match        https://www.amazon.com/*
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
