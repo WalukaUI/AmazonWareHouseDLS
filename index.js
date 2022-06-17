@@ -8,6 +8,7 @@
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        none
 // ==/UserScript==
+
 (function () {
   //Load on Window Load
   window.addEventListener("load", () => {
