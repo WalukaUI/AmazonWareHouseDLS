@@ -10,6 +10,6 @@ if not follow these steps
 
 1 Download Tampermonkey extention https://www.tampermonkey.net/ <br />
 2 select the browser you are using. <br />
-3 Download stable version install. <br />
+3 Download stable version and install. <br />
 4 Click on above link and click install.<br />
 5 Shop with ease. :)
