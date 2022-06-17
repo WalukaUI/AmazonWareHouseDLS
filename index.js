@@ -1,33 +1,45 @@
-window.addEventListener("DOMContentLoaded", () => {
+//Load on Window Load
+window.addEventListener("load", () => {
   let deals = document.getElementsByClassName("s-widget-spacing-small");
-  let parent = document.getElementsByClassName("s-search-results");
-  let parentDiv = document.getElementsByClassName("sg-col-inner");
   let searchBar = document.getElementsByClassName(
     "a-section a-spacing-none s-result-item s-flex-full-width s-widget s-widget-spacing-large"
+  );
+  let parentRows = document.getElementsByClassName(
+    "s-main-slot s-result-list s-search-results sg-row"
   );
 
   let newArray = [];
   let newSearchBar = [];
 
+  // Fiter Out Search bar and save in newSearchBar Array
   for (let i = 0; i < searchBar.length; i++) {
     if (searchBar[i].textContent.includes("Next") === true) {
       newSearchBar.push(searchBar[i]);
     }
   }
 
+  //Filter all deals on the window and save in newArray array
   for (let i = 0; i < deals.length; i++) {
     if (deals[i].textContent.includes("More Buying Choices") === true) {
       newArray.push(deals[i]);
     }
   }
 
-  while (parentDiv[2].firstChild) {
-    parentDiv[2].removeChild(parentDiv[2].firstChild);
+  //Create a new div to save searchBar
+  let newDiv = document.createElement("div");
+  newDiv.className = "srhBar";
+
+  //Remove all products on the window
+  while (parentRows[0].firstChild) {
+    parentRows[0].removeChild(parentRows[0].firstChild);
   }
 
+  // load warehouse deals on window
   for (let x of newArray) {
-    parentDiv[2].appendChild(x);
+    parentRows[0].appendChild(x);
   }
 
-  parentDiv[2].appendChild(newSearchBar[0]);
+  //load search bar at the end of the window
+  newDiv.appendChild(newSearchBar[0]);
+  parentRows[0].appendChild(newDiv);
 });
