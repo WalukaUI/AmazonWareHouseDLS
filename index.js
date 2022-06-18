@@ -20,7 +20,7 @@
       "s-main-slot s-result-list s-search-results sg-row"
     );
 
-    let newArray = [];
+    let filteredProducts = [];
     let newSearchBar = [];
 
     // Fiter Out Search bar and save in newSearchBar Array
@@ -30,12 +30,31 @@
       }
     }
 
-    //Filter all deals on the window and save in newArray array
+    // Filter all More Buying Options with the price on the window and save in filteredProducts array
     for (let i = 0; i < deals.length; i++) {
       if (deals[i].textContent.includes("More Buying Choices") === true) {
-        newArray.push(deals[i]);
+        let divsInsideParentDiv = deals[i].getElementsByClassName(
+          "a-row a-size-base a-color-secondary"
+        );
+
+        let price = divsInsideParentDiv[
+          divsInsideParentDiv.length - 1
+        ].innerText
+          .split("\n")[1]
+          .split("(")[0];
+        let priceWithout$ = price.split("$")[1];
+        let priceToInt = parseFloat(priceWithout$);
+
+        filteredProducts.push([deals[i], priceToInt]);
       }
     }
+
+    //Filter all deals on the window and save in filteredProducts array
+    // for (let i = 0; i < deals.length; i++) {
+    //   if (deals[i].textContent.includes("More Buying Choices") === true) {
+    //     filteredProducts.push(deals[i]);
+    //   }
+    // }
 
     //Create a new div to save searchBar
     let newDiv = document.createElement("div");
@@ -48,7 +67,7 @@
     }
 
     // load warehouse deals on window
-    for (let x of newArray) {
+    for (let x of filteredProducts) {
       parentRows[0].appendChild(x);
     }
 
