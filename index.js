@@ -36,25 +36,32 @@
         let divsInsideParentDiv = deals[i].getElementsByClassName(
           "a-row a-size-base a-color-secondary"
         );
-
-        let price = divsInsideParentDiv[
-          divsInsideParentDiv.length - 1
-        ].innerText
-          .split("\n")[1]
-          .split("(")[0];
-        let priceWithout$ = price.split("$")[1];
-        let priceToInt = parseFloat(priceWithout$);
-
-        filteredProducts.push([deals[i], priceToInt]);
+        if (deals[i].textContent.includes("Excellent condition") === true) {
+          let getRow = deals[i].getElementsByClassName("a-row a-spacing-mini");
+          let filteredPrice = getRow[0].innerText
+            .split("More Buying Choices")[1]
+            .split("(")[0]
+            .split("$")[1];
+          let priceToInt = parseFloat(filteredPrice);
+          filteredProducts.push([deals[i], priceToInt]);
+        } else {
+          let price = divsInsideParentDiv[
+            divsInsideParentDiv.length - 1
+          ].innerText
+            .split("\n")[1]
+            .split("(")[0]
+            .split("$")[1];
+          let priceToInt = parseFloat(price);
+          filteredProducts.push([deals[i], priceToInt]);
+        }
       }
     }
 
-    //Filter all deals on the window and save in filteredProducts array
-    // for (let i = 0; i < deals.length; i++) {
-    //   if (deals[i].textContent.includes("More Buying Choices") === true) {
-    //     filteredProducts.push(deals[i]);
-    //   }
-    // }
+    // Sort filteredProducts according to thdeal pice
+
+    let sortedProducts = filteredProducts.sort(function (a, b) {
+      return a[1] - b[1];
+    });
 
     //Create a new div to save searchBar
     let newDiv = document.createElement("div");
@@ -67,8 +74,8 @@
     }
 
     // load warehouse deals on window
-    for (let x of filteredProducts) {
-      parentRows[0].appendChild(x);
+    for (let x of sortedProducts) {
+      parentRows[0].appendChild(x[0]);
     }
 
     //load search bar at the end of the window
