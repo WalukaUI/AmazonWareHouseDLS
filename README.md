@@ -1,4 +1,4 @@
-Using this extension, you will be able to filter out more affordable and cheaper products (More Buying Options) <br />in the same category that you are looking for. More importantly, you can access all your results without the <br />interruptions of ads and other marketing distractions
+Using this extension, you will be able to filter out more affordable and cheaper products (More Buying Options) <br />in the same category that you are looking for. More importantly, you can access all your results sorted according <br />to the price (Low to High), without the interruptions of ads and other marketing distractions
 
 ![](https://github.com/WalukaUI/AmazonWareHouseDLS/blob/main/filter.gif)
 
